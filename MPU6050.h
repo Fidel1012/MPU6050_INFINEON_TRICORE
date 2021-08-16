@@ -25,10 +25,10 @@
  * @{
  */
 
-/*Dirección I2C por default */
+/*DirecciÃ³n I2C por default */
 #define     MPU_I2C_DIR         0xD0
 
-/*Dirección del registro WHO_AM_I*/
+/*DirecciÃ³n del registro WHO_AM_I*/
 #define     WHO_AM_I            0x75
 
 /*Valor del registro WHO_AM_I*/
@@ -102,7 +102,7 @@
 
 /**
  * @defgroup    MPU_6060_Sensibilidades del giroscopio
- * @brief       Se definen los valores de las sensibilidades del giroscopio, en LSB/°/S para los multiplicadores de las lecturas.
+ * @brief       Se definen los valores de las sensibilidades del giroscopio, en LSB/Â°/S para los multiplicadores de las lecturas.
  * @{
  */
 #define     MPU6050_GIROSCOPIO_SENSIBILIDAD_250    ((float)131)
@@ -133,7 +133,7 @@ typedef enum
 
 /**
  * @brief   MPU_6050 Permite conectar dos acelerometros, dependiendo del valor logico del pin AD0, cuando AD0 esta en bajo
- *          la direccion, de 7 bits, es b1101000. Cuando el pin AD0 esta en alto, la dirección es b1101001.
+ *          la direccion, de 7 bits, es b1101000. Cuando el pin AD0 esta en alto, la direcciÃ³n es b1101001.
  */
 typedef enum
 {
@@ -142,7 +142,7 @@ typedef enum
 }MPU6050_Dispositivo;
 
 /**
- * @brief   Rangos de operación del acelerometro en g; 1g = 9.81 m/s2.
+ * @brief   Rangos de operaciÃ³n del acelerometro en g; 1g = 9.81 m/s2.
  */
 typedef enum
 {
@@ -153,14 +153,14 @@ typedef enum
 }MPU6050_Acelerometro_Rango;
 
 /**
- * @brief   Rango del giroscopio en °/s.
+ * @brief   Rango del giroscopio en Â°/s.
  */
 typedef enum
 {
-    MPU6050_Giroscopio_250  =   0x00,   /*Rango +- 250 °/s */
-    MPU6050_Giroscopio_500,             /*Rango +- 500 °/s */
-    MPU6050_Giroscopio_1000,            /*Rango +- 1000 °/s */
-    MPU6050_Giroscopio_2000             /*Rango +- 2000 °/s */
+    MPU6050_Giroscopio_250  =   0x00,   /*Rango +- 250 Â°/s */
+    MPU6050_Giroscopio_500,             /*Rango +- 500 Â°/s */
+    MPU6050_Giroscopio_1000,            /*Rango +- 1000 Â°/s */
+    MPU6050_Giroscopio_2000             /*Rango +- 2000 Â°/s */
 }MPU6050_Giroscopio_Rango;
 
 /**
@@ -211,16 +211,16 @@ typedef struct
  * @brief   Funcion para inicializar y configurar el dispositivo
  * @param   I2C_Handler: Puntero al controlador I2C nativo de iLLD library
  * @param   MPU6050_Valores: Puntero a estructura vacias @ref MPU6050_Typedef
- * @param   NumeroDispositivo: Indica la dirección de dispositivo @ref MPU6050_Dispositivo
- * @param   Acelerometro_Rango: Indica el rango de operación del acelerometro @ref MPU6050_Acelerometro_Rango
- * @param   Giroscopio_Rango: Indica el rango de operación del giroscopio @ref MPU6050_Giroscopio_Rango
+ * @param   NumeroDispositivo: Indica la direcciÃ³n de dispositivo @ref MPU6050_Dispositivo
+ * @param   Acelerometro_Rango: Indica el rango de operaciÃ³n del acelerometro @ref MPU6050_Acelerometro_Rango
+ * @param   Giroscopio_Rango: Indica el rango de operaciÃ³n del giroscopio @ref MPU6050_Giroscopio_Rango
  *
  * @retval  Miembro de la enumeracion @ref MPU6050_Result
  */
 MPU6050_Result MPU6050_Init(IfxI2c_I2c_Device *I2C_Handler, MPU6050_Typedef *MPU6050_Valores, MPU6050_Dispositivo NumeroDispositivo, MPU6050_Acelerometro_Rango Acelerometro_Rango, MPU6050_Giroscopio_Rango Giroscopio_Rango);
 
 /**
- * @brief   Función para configurar la frecuencia de muestreo, sample rate
+ * @brief   FunciÃ³n para configurar la frecuencia de muestreo, sample rate
  * @param   I2C_Handler: Puntero al controlador I2C nativo de iLLD library
  * @param   MPU6050_Valores: Puntero a estructura vacias @ref MPU6050_Typedef
  * @param   SampleRate: Frecuencia de muestreo @defgroup MPU_6060_Tasas de muestreo
@@ -249,9 +249,8 @@ MPU6050_Result MPU6050_AcelerometroConfig(IfxI2c_I2c_Device *I2C_Handler, MPU605
  */
 MPU6050_Result MPU6050_GiroscopioConfig(IfxI2c_I2c_Device *I2C_Handler, MPU6050_Typedef *MPU6050_Valores, MPU6050_Giroscopio_Rango Giroscopio_Rango);
 
-
 /**
- * @brief   Función para recibir lecturas de acelerometro
+ * @brief   FunciÃ³n para recibir lecturas de acelerometro
  * @param   I2C_Handler: Puntero al controlador I2C nativo de iLLD library
  * @param   MPU6050_Valores: Puntero a estrictura vacias @ref MPU6050_Typedef
  *
@@ -259,9 +258,8 @@ MPU6050_Result MPU6050_GiroscopioConfig(IfxI2c_I2c_Device *I2C_Handler, MPU6050_
  */
 MPU6050_Result MPU6050_LeerAcelerometro(IfxI2c_I2c_Device *I2C_Handler, MPU6050_Typedef *MPU6050_Valores);
 
-
 /**
- * @brief   Función para recibir lecturas de giroscopio
+ * @brief   FunciÃ³n para recibir lecturas de giroscopio
  * @param   I2C_Handler: Puntero al controlador I2C nativo de iLLD library
  * @param   MPU6050_Valores: Puntero a estrictura vacias @ref MPU6050_Typedef
  *
@@ -270,7 +268,7 @@ MPU6050_Result MPU6050_LeerAcelerometro(IfxI2c_I2c_Device *I2C_Handler, MPU6050_
 MPU6050_Result MPU6050_LeerGiroscopio(IfxI2c_I2c_Device *I2C_Handler, MPU6050_Typedef *MPU6050_Valores);
 
 /**
- * @brief   Función para recibir lecturas de termometro
+ * @brief   FunciÃ³n para recibir lecturas de termometro
  * @param   I2C_Handler: Puntero al controlador I2C nativo de iLLD library
  * @param   MPU6050_Valores: Puntero a estrictura vacias @ref MPU6050_Typedef
  *
@@ -279,7 +277,7 @@ MPU6050_Result MPU6050_LeerGiroscopio(IfxI2c_I2c_Device *I2C_Handler, MPU6050_Ty
 MPU6050_Result MPU6050_LeerTemperatura(IfxI2c_I2c_Device *I2C_Handler, MPU6050_Typedef *MPU6050_Valores);
 
 /**
- * @brief   Función para recibir lecturas de acelerometro, termometro y giroscopio a la vez
+ * @brief   FunciÃ³n para recibir lecturas de acelerometro, termometro y giroscopio a la vez
  * @param   I2C_Handler: Puntero al controlador I2C nativo de iLLD library
  * @param   MPU6050_Valores: Puntero a estrictura vacias @ref MPU6050_Typedef
  *
